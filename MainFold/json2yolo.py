@@ -1,6 +1,7 @@
 import json
 import os
 
+
 def coordinate_convert(img_w, img_h, x_min, x_max, y_min, y_max):
     center_x = (x_min + x_max)/2
     center_y = (y_min + y_max)/2
