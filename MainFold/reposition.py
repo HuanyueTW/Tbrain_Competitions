@@ -1,3 +1,5 @@
+# ycl7199
+# use char coordinates to calculate precise string bounding box 
 import csv 
 import json
 import os
