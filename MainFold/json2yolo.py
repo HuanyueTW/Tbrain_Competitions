@@ -1,7 +1,9 @@
+# ycl7199
+# transfer json format label to yolo format
 import json
 import os
 
-
+# convert coordinates from absolute coordinates to ratio 
 def coordinate_convert(img_w, img_h, x_min, x_max, y_min, y_max):
     center_x = (x_min + x_max)/2
     center_y = (y_min + y_max)/2
@@ -45,15 +47,15 @@ def json2yolo(json_filename):
                 mix.append("{} {:.3f} {:.3f} {:.3f} {:.3f}".format(2, c_x, c_y, width, height))
 
 
-        all_str = str_ch + str_en + mix
-        ### save yolo format txt file to annotations_str folder
-        save_file_name_all = os.path.join("annotations_str", json_filename.replace("json", "txt"))   
+        all_str = str_ch + str_en + mix # select string types to save in yolo format txt file
+        ### save yolo format txt file to output folder
+        save_file_name_all = os.path.join("annotations_str", json_filename.replace("json", "txt")) # output folder name  
         print("\n".join(all_str), file= open(save_file_name_all, "w"))
 
 
     # print('process done')      
                 
-json_folder = 'json'
+json_folder = 'json' # input folder
 file_list = os.listdir(json_folder)
 print(file_list)
 for i, filename in enumerate(file_list):
