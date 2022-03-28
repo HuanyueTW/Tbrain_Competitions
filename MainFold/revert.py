@@ -1,4 +1,5 @@
-
+# ycl7199
+# convert char coordinates from string image to original image
 import csv 
 import json
 import os
