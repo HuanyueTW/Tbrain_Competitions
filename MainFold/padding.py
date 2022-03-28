@@ -1,10 +1,12 @@
+# ycl7199
+# padding string image to normal ratio
 import cv2
 import numpy as np
 import os
 import json
 
 def padding(filename, img_size ,bbox_info):
-    ### read image
+    ### read string image
     img = cv2.imread(filename)
     old_image_height, old_image_width, channels = img.shape
 
@@ -13,7 +15,7 @@ def padding(filename, img_size ,bbox_info):
     color = (255,255,255)
     result = np.full((new_image_height,new_image_width, channels), color, dtype=np.uint8)
 
-    ### compute center to put image
+    ### compute canvas center to put string image
     x_center = (new_image_width - old_image_width) // 2
     y_center = (new_image_height - old_image_height) // 2
 
@@ -24,10 +26,10 @@ def padding(filename, img_size ,bbox_info):
     
     print('x center = {}, y center = {}'.format(x_center,y_center))
     b_name = filename.split('.')[0].split('\\')[1]
-    ### record center point
+    ### record center point for recovery step
     bbox_info[b_name] = [x_center, y_center]
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
+#     cv2.waitKey(0)
+#     cv2.destroyAllWindows()
     print( filename.split('\\')[-1])
     save_name = filename.split('\\')[-1]
     save_path = os.path.join(folder_name +'_border\\',save_name)
