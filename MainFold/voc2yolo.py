@@ -1,3 +1,5 @@
+# ycl7199
+# convert VOC format labels to yolo format
 from os import name
 from typing import Text
 import xml.etree.ElementTree as ET
