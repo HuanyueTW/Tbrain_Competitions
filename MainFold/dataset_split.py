@@ -1,3 +1,5 @@
+# ycl7199
+# split dataset to train, validation, test part
 import os 
 import random
 import shutil
